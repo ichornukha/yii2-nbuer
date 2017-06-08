@@ -1,0 +1,26 @@
+{
+  "name": "IChornuha/yii2-nbuer",
+  "description": "Yii2 extension which is working with National Bank of Ukraine API and getting currency exchange rate",
+  "type": "yii2-extension",
+  "keywords": ["igor chornukha","api","yii2","extension","national bank of Ukraine","wrapper"],
+  "license": "MIT License",
+  "authors": [
+    {
+      "name": "Igor Chornukha",
+      "email": "igor.chornukha@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/IChornuha/yii2-nbuer/issues",
+    "source": "https://github.com/IChornuha/yii2-nbuer"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "yiisoft/yii2": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "IChornuha\\nbuer\\": ""
+    }
+  }
+}
