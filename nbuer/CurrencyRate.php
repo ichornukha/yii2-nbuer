@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace IChornuha\nbuer\NationalBankOfUkraineExchangeRates;
+namespace IChornuha\nbuer\nbuer;
 
 
 /**
@@ -12,7 +12,7 @@ namespace IChornuha\nbuer\NationalBankOfUkraineExchangeRates;
  * Basic class for currency rate data.
  * Contain response data from API with saving response structure.
  * Each instance of this class will be in CurrencyRateRepository
- * @see \IChornuha\nbuer\NationalBankOfUkraineExchangeRates\CurrencyRateRepository
+ * @see \IChornuha\nbuer\nbuer\CurrencyRateRepository
  */
 class CurrencyRate
 {
