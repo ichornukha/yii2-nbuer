@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace IChornuha\nbuer\nbuer;
+namespace IChornuha\nbuer\source;
 
 use yii\httpclient;
-use IChornuha\nbuer\nbuer\CurrencyRateRepository;
+use IChornuha\nbuer\source\CurrencyRateRepository;
 
 /**
  * Class ExchangeRates
- * @package IChornuha\nbuer
+ * @package IChornuha\source
  * @author Igor Chornukha <igor.chornuha@gmail.com>
  *
  * An Yii2 extension package which is working with National Bank of Ukraine API and getting currency exchange rate

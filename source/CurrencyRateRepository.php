@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace IChornuha\nbuer\nbuer;
+namespace IChornuha\nbuer\source;
 
-use IChornuha\nbuer\nbuer\CurrencyRate;
+use IChornuha\nbuer\source\CurrencyRate;
 
 /**
  * Class CurrencyRateRepository
- * @package IChornuha\nbuer\nbuer
+ * @package IChornuha\source\source
  * @author Igor Chornuha <igor.chornuha@gmail.com>
  * @see ExchangeRates
  * @see CurrencyRate;
@@ -23,7 +23,7 @@ class CurrencyRateRepository
     private $storage = [];
 
     /**
-     * @param \IChornuha\nbuer\nbuer\CurrencyRate $rate
+     * @param \IChornuha\nbuer\source\CurrencyRate $rate
      */
     public function save(CurrencyRate $rate)
     {
@@ -40,7 +40,7 @@ class CurrencyRateRepository
 
     /**
      * @param \DateTimeInterface $dateTime
-     * @return \IChornuha\nbuer\nbuer\CurrencyRate
+     * @return \IChornuha\nbuer\source\CurrencyRate
      */
     public function getByDate(\DateTimeInterface $dateTime): CurrencyRate
     {
