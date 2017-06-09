@@ -84,7 +84,8 @@ class ExchangeRates
      */
     private function request(array $data)
     {
-     return  $this->client->get('', $data)->send();
+     $resp =  $this->client->get('', $data)->send();
+     return $resp->getData();
 
     }
 
