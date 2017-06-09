@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace IChornuha\nbuer\source;
 
+use yii\base\Theme;
 use yii\httpclient;
 use IChornuha\nbuer\source\CurrencyRateRepository;
 
@@ -20,9 +21,23 @@ class ExchangeRates
      * @var CurrencyRateRepository
      */
     private $repository;
+    /**
+     * @var httpclient\Client
+     */
     private $client;
+    /**
+     * @var CurrencyRateSimpleFactory
+     */
     private $factory;
+    /**
+     * @var
+     */
+    private $config;
 
+    /**
+     * ExchangeRates constructor.
+     * @param array $config
+     */
     public function __construct(array $config = [])
     {
         if ($config == []) {
@@ -37,25 +52,53 @@ class ExchangeRates
         $this->factory = new CurrencyRateSimpleFactory();
     }
 
-    public function loadData()
+
+    /**
+     * Do request to API and save response as CurrencyRate instances in CurrencyRateRepository
+     * @return ExchangeRates
+     */
+    public function loadData(): self
     {
+        $response = $this->request($this->prepareRequestData());
+        $response = json_decode($response, true);
+        foreach ($response as $item) {
+            $this->repository->save($this->factory->createInstanceOfRateDataClass($item));
+        }
+        return $this;
 
     }
 
+    /**
+     * TODO
+     * Not implemented yet
+     * @param \DateTimeInterface $dateTime
+     */
     public function getByDate(\DateTimeInterface $dateTime)
     {
         $this->repository->getByDate($dateTime);
     }
 
+    /**
+     * @param array $data
+     * @return httpclient\Response
+     */
     private function request(array $data)
     {
-        $KirovReporting = $this->client->get('', $data)->send();
+     return  $this->client->get('', $data)->send();
 
     }
 
+    /**
+     * @return array
+     */
     private function prepareRequestData()
     {
-        $data = [];
+        return [
+            'valcode' => $this->config['currencyCode'],
+            'date' => date('Ymd'),
+            'json'
+        ];
+
 
     }
 
